@@ -124,3 +124,22 @@
     
 })(jQuery);
 
+  function checkFormAndRedirect() {
+        var form = document.getElementById('quoteForm');
+        var allFilled = true;
+
+        for (var i = 0; i < form.elements.length; i++) {
+            if (form.elements[i].type == "text" && form.elements[i].value === "") {
+                allFilled = false;
+                break;
+            }
+        }
+
+        if (allFilled) {
+            setTimeout(function() {
+                window.location.href = '/';
+            }, 1000); 
+        } else {
+            alert('Please fill in all the fields.');
+        }
+    }
